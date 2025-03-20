@@ -29,4 +29,4 @@ for i, row in df.iterrows():
         yshift=10
     )
 
-st.plotly_chart(fig, width=1200)
+st.plotly_chart(fig, use_container_width=True)
