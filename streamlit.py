@@ -6,7 +6,7 @@ df = pd.read_csv("scores.csv")
 df = df.replace("x", None)
 df.rename(columns={'Unnamed: 5': 'Game Total', 'Unnamed: 10': 'Spirit Total', 'Unnamed: 11': 'Total Total'}, inplace=True)
 
-df = df.sort_values(by='Total Total', ascending=False)
+df = df.sort_values(by='Total Total', ascending=False).dropna()
 
 view_option = st.radio("Select View", ('Totals', 'Game Scores'))
 
