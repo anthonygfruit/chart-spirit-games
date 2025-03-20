@@ -18,5 +18,16 @@ elif view_option == 'Game Scores':
 fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
 
 # Add a data table with emojis
-df['Emoji'] = df.apply(lambda row: '🏆' if row['Total Total'] == df['Total Total'].max() or row['Game Total'] == df['Game Total'].max() or row['Spirit Total'] == df['Spirit Total'].max() else '🍪', axis=1)
+df['Emoji'] = df.apply(lambda row: '🏆' if row['Total Total'] == df['Total Total'].max() else '🍪', axis=1)
+
+# Add emojis to the top of the bar chart
+for i, row in df.iterrows():
+    fig.add_annotation(
+        x=row['Team Member'],
+        y=row['Total Total'] if view_option == 'Totals' else max(row[['Free Throw', 'Putting', 'Beer Pong', 'Corn Hole']]),
+        text=row['Emoji'],
+        showarrow=False,
+        yshift=10
+    )
+
 st.plotly_chart(fig, width=1200)
