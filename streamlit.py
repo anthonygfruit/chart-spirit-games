@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-df = pd.read_csv("../../Downloads/scores.csv")
+df = pd.read_csv("scores.csv")
 df = df.replace("x", None)
 df.rename(columns={'Unnamed: 5': 'Game Total', 'Unnamed: 10': 'Spirit Total', 'Unnamed: 11': 'Total Total'}, inplace=True)
 
