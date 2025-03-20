@@ -20,4 +20,3 @@ fig.update_layout(plot_bgcolor='rgba(0,0,0,0)')
 # Add a data table with emojis
 df['Emoji'] = df.apply(lambda row: '🏆' if row['Total Total'] == df['Total Total'].max() or row['Game Total'] == df['Game Total'].max() or row['Spirit Total'] == df['Spirit Total'].max() else '🍪', axis=1)
 st.plotly_chart(fig, width=1200)
-st.dataframe(df, width=1200)
