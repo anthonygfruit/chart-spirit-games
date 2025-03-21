@@ -30,3 +30,4 @@ for i, row in df.iterrows():
     )
 
 st.plotly_chart(fig, use_container_width=True)
+st.dataframe(df[['Team Member', 'Game Total', 'Spirit Total', 'Total Total', 'Emoji']], use_container_width=True)
